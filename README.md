@@ -34,7 +34,7 @@ Things you may want to cover:
 | password | string | null: false |
 |family_name|string | null: false |
 | name     | string | null: false |
-|family_name_show| integer| null: false |
+|family_name_show| string | null: false |
 | name_show| string | null: false |
 | birthday |  date  | null: false |
 
@@ -42,7 +42,6 @@ Things you may want to cover:
 
 - has_many :items
 - has_many :orders
-- has_one :address
 
 
 
@@ -58,7 +57,7 @@ Things you may want to cover:
 |  area_id  |integer| null: false |
 |  days_id  |integer| null: false |
 |  price    |integer| null: false |
-|  user     | references | foreign_key: true |
+|  user     | references | null: false, foreign_key: true  |
 
 ### Association
 
@@ -72,16 +71,16 @@ Things you may want to cover:
 
 ##  order  テーブル
 
-|  Column     |   Type     |      Options       |
-| ----------- | ---------- | -------------------|
-|    user     | references | foreign_key: true  |
-|    item     | references | foreign_key: true  |
+|  Column     |   Type     |            Options              |
+| ----------- | ---------- | ------------------------------- |
+|    user     | references | null: false, foreign_key: true  |
+|    item     | references | null: false, foreign_key: true  |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :items
-- belongs_to :address
+- has_one :address
 
 
 
@@ -96,8 +95,8 @@ Things you may want to cover:
 |house_number |  string    |   null: false      |
 |building_name|  string    |                    |
 |phone_number |  string    |   null: false      |
+|    order    | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :users
-- belongs_to :orders
+- belongs_to :order
