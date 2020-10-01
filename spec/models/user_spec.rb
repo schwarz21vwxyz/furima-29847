@@ -1,9 +1,7 @@
-require 'rails_helper'
-
 RSpec.describe User, type: :model do
   describe 'User' do
     before do
-      @user = FactoryBot.build(:user)
+      @user = FactoryBot.build(:user)
     end
   
     it "nick_nameが空だと登録できない" do
@@ -30,6 +28,5 @@ RSpec.describe User, type: :model do
     end
     it "nameが全角日本語でないと保存できないこと" do
     end
-
   end
 end
