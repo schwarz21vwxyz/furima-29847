@@ -66,7 +66,7 @@ describe 'User' do
       end
 
       it "emailに＠が付いてないと登録できない" do
-        @user.email = tesuto@gmail.com
+        @user.email = tesutogmail.com
         @user.valid?
         expect(@user.errors.full_messages).to include("Email can't be blank")
       end
@@ -105,6 +105,18 @@ describe 'User' do
         @user.name_show = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("Family_name_show can't be blank")
+      end
+
+      it "family_nameのフリガナがカタカナ入力でないと登録できない" do
+        @user.family_name_show = "やまだ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family_name_show can't be blank")
+      end
+
+      it "nameのフリガナがカタカナ入力でないと登録できない" do
+        @user.name_show = "たろう"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Name_show can't be blank")
       end
 
       it "birthdayが空白だと登録できない" do
