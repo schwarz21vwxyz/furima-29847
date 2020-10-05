@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :show
   belongs_to_active_hash :delivery
   belongs_to_active_hash :area
-  belongs_to_active_hash :days
+  belongs_to_active_hash :day
 
 
   validates :name, :comment, :price, :user, presence: true
