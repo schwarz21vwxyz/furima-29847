@@ -5,4 +5,12 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery
   belongs_to_active_hash :area
   belongs_to_active_hash :days
+
+
+  validates :name, :comment, :price, :user, presence: true
+
+  validates :category_id, :show_id, :delivery_id, :delivery_id, numericality: { other_than: 1 } 
+
+  validates :area_id, numericality: { other_than: 0 } 
+
 end
