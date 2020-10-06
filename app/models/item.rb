@@ -6,8 +6,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :area
   belongs_to_active_hash :day
   belongs_to :user
+  has_one_attached :image
 
-  validates :name, :comment, :price, :user, presence: true
+  validates :image, :name, :comment, :price, :user, presence: true
 
   validates :category_id, :show_id, :delivery_id, :delivery_id, numericality: { other_than: 1 } 
 
