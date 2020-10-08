@@ -16,9 +16,12 @@ class Item < ApplicationRecord
 
   validates_inclusion_of :price, in: 300..9999999, message: "Out of setting range"
 
-  validates :category_id, numericality: { other_than: 1, message: "Select" } 
-  validates :show_id, numericality: { other_than: 1 , message: "Select"} 
-  validates :delivery_id, numericality: { other_than: 1 , message: "Select"} 
+  with_options numericality: { other_than: 1, message: "Select" } do
+    validates :category_id
+    validates :show_id
+    validates :delivery_id
+    validates :day_id
+  end
+
   validates :area_id, numericality: { other_than: 0 , message: "Select"} 
-  validates :day_id, numericality: { other_than: 1 , message: "Select"} 
 end
