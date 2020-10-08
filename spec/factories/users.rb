@@ -5,11 +5,11 @@ FactoryBot.define do
     email { 'sample@gmail.com' }
     password { 'aaaa1111' }
     encrypted_password { 'aaaa1111' }
-    familyname { '山田' }
+    family_name { '山田' }
     name { '太郎' }
     family_name_show { 'ヤマダ' }
     name_show { 'タロウ' }
-    birthday { '1' }
+    birthday { '2000-12-12' }
 
   end
 end

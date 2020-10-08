@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   validates :image, :name, :comment, :user, presence: true
 
   with_options presence: true do
-    validates :price, format: { with: /\A[a-zA-Z0-9]+\z/, message: "Half-width number"}
+    validates :price, numericality: { with: /\A[0-9]+\z/, message: "Half-width number"}
   end
 
   validates_inclusion_of :price, in: 300..9999999, message: "Out of setting range"

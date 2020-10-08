@@ -16,9 +16,8 @@ describe 'User' do
         @user.valid?
         expect(@user.errors.full_messages).to include("Passward is too long (maximum is 6 characters)")
       end
-
-
     end
+    
 
     context '新規登録がうまくいかないとき' do
       it "nick_nameが空だと登録できない" do
