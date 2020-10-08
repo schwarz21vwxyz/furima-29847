@@ -3,6 +3,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
+  has_one_attached :image
 
   validates :nick_name, presence: true
   validates :birthday, presence: true
@@ -15,4 +17,5 @@ class User < ApplicationRecord
     validates :name_show, format: { with: /\A[ァ-ヶー－]+\z/, message: "は全角（カタカナ）で入力"}
     validates :password, presence: true, format: { with: /\A[a-zA-Z0-9]+\z/, message: "は半角英数字で入力"}
   end
+
 end
