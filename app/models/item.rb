@@ -5,8 +5,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery
   belongs_to_active_hash :area
   belongs_to_active_hash :day
-  belongs_to :user
   has_one_attached :image
+  belongs_to :user
+  has_one :order
 
   validates :image, :name, :comment, :user, presence: true
 
