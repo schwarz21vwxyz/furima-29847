@@ -6,7 +6,7 @@ class Buy
 
   with_options presence: true do
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "Input correctly"}
-    validates :phone_number, numericality: { with: /\A\d{11}\z/, message: "Input only number"}
+    validates :phone_number, length: {maximum: 11 , message: "Input only number"}
   end
 
   validates :city, :house_number, presence: true
