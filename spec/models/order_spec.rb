@@ -61,12 +61,11 @@ RSpec.describe Buy, type: :model do
           expect(@order.errors.full_messages).to include("Phone number can't be blank")
         end
 
-        # it "電話番号にハイフンがあると購入できない" do
-        #   binding.pry
-        #   @order.phone_number = 123-4567-8910
-        #   @order.valid?
-        #   expect(@order.errors.full_messages).to include("Phone number Input only number")
-        # end
+        it "電話番号にハイフンがあると購入できない" do
+          @order.phone_number = '123-4567-8910'
+          @order.valid?
+          expect(@order.errors.full_messages).to include("Phone number Input only number")
+        end
 
         it "電話番号は11桁以内で入力しないと購入できない" do
           @order.phone_number = '123456789101'
