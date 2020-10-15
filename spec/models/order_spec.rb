@@ -57,7 +57,6 @@ RSpec.describe Buy, type: :model do
 
         it "電話番号が空白だと購入できない" do
           @order.phone_number = ''
-          binding.pry
           @order.valid?
           expect(@order.errors.full_messages).to include("Phone number can't be blank")
         end
