@@ -6,12 +6,13 @@ class Buy
 
   with_options presence: true do
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "Input correctly"}
-    validates :phone_number, length: {maximum: 11 , message: "Input only number"}
+    validates :phone_number, format: {with: /\A\d{11}\z/,  message: "Input only number"}
+    validates :city, presence: true
+    validates :house_number, presence: true
+    validates :token, presence: true
   end
 
-  validates :city, :house_number, presence: true
   validates :prefecture_id, numericality: { other_than: 0 , message: "Select"} 
-  validates :token, presence: true
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id,)
