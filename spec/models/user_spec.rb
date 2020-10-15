@@ -11,12 +11,6 @@ RSpec.describe User, type: :model do
         # user = build(:user)
         expect(@user).to be_valid
       end
-
-      # it "ppasswordが６文字以上で登録できる" do
-      #   @user.password = "aaaa1111"
-      #   @user.valid?
-      #   expect(@user.errors.full_messages).to include("Password is too long (maximum is 6 characters)")
-      # end
     end
     
 
@@ -32,12 +26,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password can't be blank")
       end
-
-      # it "passwordは半角英字のみでは登録できない" do
-      #   @user.password = 'aaaaaaaa'
-      #   @user.valid?
-      #   expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
-      # end
 
       it "passwordは半角数字のみでは登録できない" do
         @user.password = '11111111'
